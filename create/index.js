@@ -3,7 +3,7 @@ function berechnen(){
     let name=document.getElementById("name").value;
     name=name.toLowerCase()
     let text=document.getElementById("text").value;
-    text=text.toLowerCase()
+   
     let result="";
     for(let i=0; i<name.length;i++ ){
         result+=name[i].charCodeAt(0)+"*"
