@@ -1,20 +1,49 @@
 
 function berechnen(){
-    let name=document.getElementById("name").value;
-    name=name.toLowerCase()
-    let result="";
+        function checkName(nameF,messageF){
+            console.log(nameF+" "+messageF)
+        let name=document.getElementById("name").value;
+        name=name.toLowerCase()
+        let result="";
 
-    if(name=="jonas"){
+        if(name==nameF){
 
-        result="Unglaublich hässlich"
-    }else if(name=="luis"){
-result="komisch, geh mal zum Friseur"
-}else{
+            result=messageF;
+        }else{
 
-        	result="Sehr schön"
-    }
+                result="Sehr schön"
+        }
 
-    document.getElementById("output").innerHTML=result;    
-    console.log(name)
-
+        document.getElementById("output").innerHTML=result; 
+        }
+    
+    let hash=window.location.hash;
+    if(hash) {
+        let realName="";
+        let realText="";
+        hash=hash.replace("#","")
+        const splitted=hash.split("**")
+        const name=splitted[0];
+        const message=splitted[1]
+        const nameB=name.split("*")
+        let messageB=message.split("*")
+        messageB.pop();
+        var notRealName = nameB.map(function (x) { 
+            return parseInt(x, 10); 
+          });
+          for(x in notRealName){
+        realName+=String.fromCharCode(notRealName[x])
+          }
+          var notRealText = messageB.map(function (x) { 
+            return parseInt(x, 10); 
+          });
+          for(x in notRealText){
+        realText+=String.fromCharCode(notRealText[x])
+          }
+        console.log(realName+"/"+realText)
+        
+        checkName(realName,realText)
+      } else {
+        checkName("jonas","Unglaublich hässlich")
+      }
 }
