@@ -7,7 +7,9 @@ function berechnen(){
     if(name=="jonas"){
 
         result="Unglaublich hässlich"
-    }else{
+    }else if(name=="luis"){
+result="komisch, geh mal zum Friseur"
+}else{
 
         	result="Sehr schön"
     }
